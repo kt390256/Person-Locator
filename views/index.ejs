@@ -1,0 +1,19 @@
+<% include partials/header %>
+
+
+ <h1>Welcome to <%=title%>  <a href="/addpatient">Add new patient</a>  </h1>
+
+   <form action="/search">
+    <input type="text" placeholder="enter patient name" name="patientName">
+    <button>Search</button>
+    </form>
+
+
+<h1>Database</h1>
+   <%data.forEach(function(patient) { %>
+
+        <h3><%=patient.patientName%>: <%=patient.location%></h3>
+
+ <% })%>
+
+<% include partials/footer %>
