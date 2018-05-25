@@ -29,7 +29,7 @@
     <%=physicianInfo.physicianLastName%>
   </strong>
 </font>
-  is located in the marked locations on the map</span>
+  is located in the marked location on the map</span>
 
   <div id="map"></div>
 </div>
@@ -50,10 +50,7 @@ $("#toggle").click(function(){
       //const newLocation = physician.location;
       console.log( physician.location);
       const newLocation = physician.location;
-      if(newLocation === null)
-      {
-        newLocation = "San Francisco";
-      }
+
       console.log(newLocation);
       //const temp = physicianLocation.toString(physicianLocation);
       //map options

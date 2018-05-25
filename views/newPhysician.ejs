@@ -1,0 +1,40 @@
+<% include partials/header %>
+<h1>Add new physician</h1>
+
+<div class="ui left demo vertical inverted sidebar labeled icon menu">
+  <a href ="/" class="item">
+    <i class="home icon"></i>
+    Home
+  </a>
+</div>
+
+<div class="ui basic icon top fixed menu">
+  <a id="toggle" class="item">
+    <i class="sidebar icon"></i>
+    Menu
+  </a>
+</div>
+
+<div class="pusher">
+  <div class="ui container">
+    <h1>Add new physician</h1>
+    <br>
+    <form action="/addPhysician" method="POST">
+     <input type="text" name="physicianFirst" placeholder="First name here">
+     <input type="text" name="physicianMiddle" placeholder="Middle name here">
+     <input type="text" name="physicianLast" placeholder="Last name here">
+     <input type="text" name="location" placeholder="location">
+       <button>Submit</button>
+    </form>
+</div>
+</div>
+
+<script>
+$("#toggle").click(function(){
+  $('.ui.labeled.icon.sidebar')
+  .sidebar('toggle');
+});
+</script>
+
+
+<% include partials/footer %>

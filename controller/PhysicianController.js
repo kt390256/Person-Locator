@@ -4,7 +4,7 @@ const models = require('../models');
 
 module.exports.showAddPhysician = function(req,res){
 
-  res.render('newPatient', {title: 'Add Patient'});
+  res.render('newPhysician', {title: 'Add Patient'});
 
 }
 
