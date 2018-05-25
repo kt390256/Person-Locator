@@ -1,14 +1,53 @@
 <% include partials/header %>
 
 
- <h1>Welcome to <%=title%>  <a href="/addpatient">Add new patient</a>  </h1>
+<br>
+<br>
+<br>
 
-   <form action="/search">
-    <input type="text" placeholder="enter patient name" name="patientName">
-    <button>Search</button>
+<div class="ui container">
+
+  <h1>Physician Locator <a href="/addpatient">Add new physician</a>  </h1>
+
+   <form action="/search" name="tempForm" onsubmit="return validateForm()">
+     <div class="ui search">
+       <div class="ui icon input">
+       <input class="prompt" type="text" placeholder="enter physician name" name="physician">
+       <i class="search icon"></i>
+     </div>
+     <button class="ui blue button small">Locate</button>
+     </div>
     </form>
 
+<table class="ui celled table">
 
+<thead>
 
+  <tr><th>Physician</th>
+    <th>Location</th>
+  </tr></thead>
 
+  <tbody>
+    <% data.forEach(function(physician){ %>
+    <tr>
+        <td><%=physician.patientName%></td>
+        <td><%=physician.location%></td>
+    </tr>
+      <%});%>
+  </tbody>
+
+</table>
+</div>
+
+<script>
+  function validateForm() {
+
+    var x = document.forms["tempForm"]["physician"].value;
+    if(x == ""){
+      alert("Name cannot be empty");
+      return false;
+    }
+
+  }
+</script>
 <% include partials/footer %>

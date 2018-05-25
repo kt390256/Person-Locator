@@ -1,22 +1,57 @@
 <% include partials/header %>
 
 
-    <h1>Search Result <a href="/">Back to main page</a></h1>
+  <div class="ui left demo vertical inverted sidebar labeled icon menu">
+    <a href ="/" class="item">
+      <i class="home icon"></i>
+      Home
+    </a>
+  </div>
 
-    <div id="map"></div>
+  <div class="ui basic icon top fixed menu">
+    <a id="toggle" class="item">
+      <i class="sidebar icon"></i>
+      Menu
+    </a>
+  </div>
+
+<div class="pusher">
+  <div class="ui container">
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+<span size="10"><font color="#00AEFF" size="7"><strong><%=physicianInfo.patientName%></strong></font> is located in the marked locations on the map</span>
+  <div id="map"></div>
+</div>
+</div>
+
+<script>
+$("#toggle").click(function(){
+  $('.ui.labeled.icon.sidebar')
+  .sidebar('toggle');
+});
+
+  </script>
+
     <script>
       var map;
-      const decodedPatientJSON = decodeURIComponent("<%=encodePatientJSON%>");
-      const patient = JSON.parse(decodedPatientJSON);
-      //const newLocation = patient.location;
-      console.log( patient.location);
-      const newLocation = patient.location;
+      const decodedphysicianJSON = decodeURIComponent("<%=encodephysicianJSON%>");
+      const physician = JSON.parse(decodedphysicianJSON);
+      //const newLocation = physician.location;
+      console.log( physician.location);
+      const newLocation = physician.location;
+      if(newLocation === null)
+      {
+        newLocation = "San Francisco";
+      }
       console.log(newLocation);
-      //const temp = patientLocation.toString(patientLocation);
+      //const temp = physicianLocation.toString(physicianLocation);
       //map options
       function initMap(){
       var options =  {
-          zoom: 16
+          zoom: 12
           //center: {lat: 42.3601, lng: -71.0589}
         }
 
@@ -36,7 +71,7 @@
       })//enf of geocode
     }//end of init map
     </script>
-    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyC_JTfnSrfvtzk2WCaZNNo6CsGRovRAboA&callback=initMap"
+    <script src="https://maps.googleapis.com/maps/api/js?AIzaSyC_JTfnSrfvtzk2WCaZNNo6CsGRovRAboA&callback=initMap"
     async defer></script>
 
 

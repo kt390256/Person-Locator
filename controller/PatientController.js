@@ -11,7 +11,7 @@ module.exports.showAddPatient = function(req,res){
 module.exports.addPatient = function(req, res){
 
   let Patient;
-  let name = req.body.patientName;
+  let name = req.body.physician;
   let location = req.body.location;
 
   Patient = new models.Patient({

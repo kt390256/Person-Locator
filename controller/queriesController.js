@@ -10,7 +10,8 @@ module.exports.getPatientName = () => {
 
 module.exports.getAddress = (name) => {
 
-  return queries.dbGetPatientAddress(name).then(data => {return data;})
-                                          .catch(err => {console.log(err)})
+  return queries.dbGetPatientAddress(name).then(data => {
+    return data;})
+  .catch(err => {console.log(err)})
 
 }

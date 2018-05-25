@@ -6,22 +6,31 @@ const queriesController = require('./queriesController');
 module.exports.getEverything = function(req, res, next){
 
 queriesController.getPatientName()
-.then( patient => {
-    res.render('index', { title: 'Express', data: patient });
+.then( physician => {
+    res.render('index', { data: physician });
 }).catch(err => {console.log("Coming from Home controller", err)});
 };
 
 module.exports.searchAddress = function(req,res, err){
 
-  var name = req.query.patientName;
+  var name = req.query.physician;
 
   queriesController.getAddress(name)
-  .then(name => {
-    console.log(name);
+  .then(data => {
+    console.log(data);
+    if(data!=null){
+        console.log("Object is not null");
     res.render('map', {
-                patientInfo: name,
+                physicianInfo: data,
                 //passing object from backend to frontend <script> tag must be in JSON format
-                encodePatientJSON: encodeURIComponent(JSON.stringify(name))
+                encodephysicianJSON: encodeURIComponent(JSON.stringify(data))
               });
+            }//end of it
+            else{
+              console.log("Object is null")
+              res.render('temp', {
+                          name: name
+                        });
+            }
  }).catch(err => {console.log("Coming from Home controller", err)});
 }

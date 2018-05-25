@@ -1,0 +1,45 @@
+<% include partials/header %>
+
+
+  <br>
+  <br>
+  <br>
+  <br>
+
+    <div class="ui container">
+    <h2>Your search "<%=name%>" returns no results</h2>
+<a href="/">Back to main page</a></h1> 
+    <div id="map"></div>
+  </div>
+
+
+    <script>
+
+      function initMap(){
+      var options =  {
+          zoom: 16
+          //center: {lat: 42.3601, lng: -71.0589}
+        }
+
+      //create a new map
+      var map = new google.maps.Map(document.getElementById('map'), options);
+
+      var geocoder = new google.maps.Geocoder(); //initiate a Geocoder object
+      //var location = "san francisco seton hospital";         //name of location
+      geocoder.geocode({'address': "Pacific Ocean"}, function(results, status){
+        if(status == google.maps.GeocoderStatus.OK){ //if the location status is aight
+          map.setCenter(results[0].geometry.location);//set center
+          var marker  = new google.maps.Marker({
+            map: map,
+            position: results[0].geometry.location
+          })//new of marker
+        }//end of if
+      })//enf of geocode
+    }//end of init map
+    </script>
+    <script src="https://maps.googleapis.com/maps/api/js?AIzaSyC_JTfnSrfvtzk2WCaZNNo6CsGRovRAboA&callback=initMap"
+    async defer></script>
+
+
+<% include partials/footer %>
+
