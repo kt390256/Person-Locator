@@ -22,7 +22,15 @@
     <br>
     <br>
     <br>
-<span size="10"><font color="#00AEFF" size="7"><strong><%=physicianInfo.patientName%></strong></font> is located in the marked locations on the map</span>
+<span size="10"><font color="#00AEFF" size="5">
+  <strong>
+    <%=physicianInfo.physicianFirstName%>
+    <%=physicianInfo.physicianMiddleName%>
+    <%=physicianInfo.physicianLastName%>
+  </strong>
+</font>
+  is located in the marked locations on the map</span>
+
   <div id="map"></div>
 </div>
 </div>
@@ -58,6 +66,10 @@ $("#toggle").click(function(){
       //create a new map
       var map = new google.maps.Map(document.getElementById('map'), options);
 
+      let infoWindow = new google.maps.InfoWindow({
+        content: "<h2>"+ newLocation + "</h2>"
+      });
+
       var geocoder = new google.maps.Geocoder(); //initiate a Geocoder object
       //var location = "san francisco seton hospital";         //name of location
       geocoder.geocode({'address': newLocation}, function(results, status){
@@ -67,6 +79,9 @@ $("#toggle").click(function(){
             map: map,
             position: results[0].geometry.location
           })//new of marker
+          marker.addListener('click', function(){
+            infoWindow.open(open,marker);
+          })//end of listener
         }//end of if
       })//enf of geocode
     }//end of init map

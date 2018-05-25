@@ -7,7 +7,7 @@
 
 <div class="ui container">
 
-  <h1>Physician Locator <a href="/addpatient">Add new physician</a>  </h1>
+  <h1>Physician Locator <a href="/addphysician">Add new physician</a>  </h1>
 
    <form action="/search" name="tempForm" onsubmit="return validateForm()">
      <div class="ui search">
@@ -23,14 +23,18 @@
 
 <thead>
 
-  <tr><th>Physician</th>
+  <tr><th>Physician First Name</th>
+    <th>Physician Middle Name</th>
+    <th>Physician Last Name</th>
     <th>Location</th>
   </tr></thead>
 
   <tbody>
     <% data.forEach(function(physician){ %>
     <tr>
-        <td><%=physician.patientName%></td>
+        <td><%=physician.physicianFirstName%></td>
+        <td><%=physician.physicianMiddleName%></td>
+        <td><%=physician.physicianLastName%></td>
         <td><%=physician.location%></td>
     </tr>
       <%});%>
