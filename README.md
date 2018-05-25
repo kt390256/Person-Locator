@@ -2,7 +2,8 @@
 A web app that pins the exact location of a physician
 
 Main Interface
-![capture](https://user-images.githubusercontent.com/28064695/40534680-bb39cd06-5fbb-11e8-9de6-11af8d6c9a87.PNG)
+![asd](https://user-images.githubusercontent.com/28064695/40534833-2993b924-5fbc-11e8-954a-56f289d84a0f.PNG)
+
 
 Map Interface
-![capture](https://user-images.githubusercontent.com/28064695/40534707-cf940050-5fbb-11e8-9c1c-fae0cb895dd9.PNG)
+![capture](https://user-images.githubusercontent.com/28064695/40534838-2bd10ff2-5fbc-11e8-9c1c-8cfaa6f74ab4.PNG)
