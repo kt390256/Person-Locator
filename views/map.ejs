@@ -25,7 +25,7 @@
 
       var geocoder = new google.maps.Geocoder(); //initiate a Geocoder object
       //var location = "san francisco seton hospital";         //name of location
-      geocoder.geocode({'address': "Daly City"}, function(results, status){
+      geocoder.geocode({'address': newLocation}, function(results, status){
         if(status == google.maps.GeocoderStatus.OK){ //if the location status is aight
           map.setCenter(results[0].geometry.location);//set center
           var marker  = new google.maps.Marker({
@@ -36,7 +36,7 @@
       })//enf of geocode
     }//end of init map
     </script>
-    <script src="https://maps.googleapis.com/maps/api/js?AIzaSyC_JTfnSrfvtzk2WCaZNNo6CsGRovRAboA&callback=initMap"
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyC_JTfnSrfvtzk2WCaZNNo6CsGRovRAboA&callback=initMap"
     async defer></script>
 
 
